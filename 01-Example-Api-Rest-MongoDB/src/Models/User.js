@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-// Define el esquema del libro
+// Define el esquema del Usuario
 const userShema = new mongoose.Schema({
   username: String,
   password: String,
