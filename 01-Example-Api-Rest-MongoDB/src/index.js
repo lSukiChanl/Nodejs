@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use('/api', UserRouter)
 
+console.log(Conexion);
 mongoose.connect(Conexion, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
