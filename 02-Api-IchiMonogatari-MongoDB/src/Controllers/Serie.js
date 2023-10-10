@@ -5,10 +5,19 @@ const ModelSerie = require('../Models/Serie');
 const getAllSeries = async (req, res) => {
     try {
         const Serie = await ModelSerie.find();
-        res.json(Serie);
+        res.json( {Result: Serie} );
     } catch (err) {
-        res.status(500).json({ error: 'Error al obtener todas las Series' });
+        res.status(500).json({ Result: 'Error al obtener todas las Series' });
     }
+};
+
+const getSerieById = async (req, res) => {
+  try {
+      const Serie = await ModelSerie.findById(req.params.id);
+      res.json( {Result: Serie} );
+  } catch (err) {
+      res.status(500).json({ Result: 'Error al obtener la Serie' });
+  }
 };
 
 /// Metodos post para agregar de usuarios
@@ -25,10 +34,10 @@ const addSerie = async (req, res) => {
   
     try {
       const newSerie = await Serie.save();
-      res.status(201).json(newSerie);
+      res.status(201).json({ Result: newSerie});
     } catch (err) {
-      res.status(500).json({ error: 'Error al crear la Serie' });
+      res.status(500).json({ Result: 'Error al crear la Serie' });
     }
 };
 
-module.exports = {getAllSeries, addSerie};
+module.exports = {getAllSeries, getSerieById, addSerie};

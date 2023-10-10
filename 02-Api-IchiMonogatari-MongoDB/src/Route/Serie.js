@@ -5,6 +5,8 @@ const router = express.Router();
 
     router.get('/series', SerieController.getAllSeries)
 
+    router.get('/serie/:id', SerieController.getSerieById);
+
     router.post('/serie/add', SerieController.addSerie);
 
 module.exports = router;
