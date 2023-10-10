@@ -18,10 +18,10 @@ const addSerie = async (req, res) => {
           imgcapitulo, imgending, imgfolder, karaoke, descarga, resolucion, extension, uploader, 
           censura } = req.body;
 
-    const Serie = new ModelSerie({ url, nombre, alias, descripcion, capitulos, puntuacion, categoria, generos, fuente, 
-                                actualizacion, fechainicio, fechafin, imgfondo, imgportada, imggif, imgopening, 
-                                imgcapitulo, imgending, imgfolder, karaoke, descarga, resolucion, extension, uploader, 
-                                censura });
+    const Serie = new ModelSerie({ url, nombre, alias, descripcion, capitulos, puntuacion, 
+          categoria, generos, fuente, actualizacion, fechainicio, fechafin, imgfondo, 
+          imgportada, imggif, imgopening, imgcapitulo, imgending, imgfolder, karaoke, 
+          descarga, resolucion, extension, uploader, censura });
   
     try {
       const newSerie = await Serie.save();
