@@ -7,6 +7,8 @@ const router = express.Router();
 
     router.get('/serie/:id', SerieController.getSerieById);
 
+    router.get('/serie/name/:id', SerieController.getSerieByName);
+
     router.post('/serie/add', SerieController.addSerie);
 
 module.exports = router;

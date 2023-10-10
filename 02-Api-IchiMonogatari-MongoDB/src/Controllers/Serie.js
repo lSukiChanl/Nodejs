@@ -20,6 +20,15 @@ const getSerieById = async (req, res) => {
   }
 };
 
+const getSerieByName = async (req, res) => {
+  try {
+      const Serie = await ModelSerie.find({ nombre: { $regex: req.params.id, $options: 'i'}});
+      res.json({Result: Serie});
+  } catch (err) {
+      res.status(500).json({ error: 'Error al buscar las Series' });
+  }
+};
+
 /// Metodos post para agregar de usuarios
 const addSerie = async (req, res) => {
     const { url, nombre, alias, descripcion, capitulos, puntuacion, categoria, generos, fuente, 
@@ -40,4 +49,4 @@ const addSerie = async (req, res) => {
     }
 };
 
-module.exports = {getAllSeries, getSerieById, addSerie};
+module.exports = {getAllSeries, getSerieById, getSerieByName, addSerie};
