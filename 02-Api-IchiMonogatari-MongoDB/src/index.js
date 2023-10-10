@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv').config();
-const UserRouter = require('./Route/User');
+const UserRouter = require('./Route/Serie');
 const app = express();
 const Conexion = `mongodb://${process.env.UserMongoDB}:${process.env.PassMongoDB}@${process.env.IpMongoDB}:${process.env.PortMongoDB}/${process.env.DBMongoDB}?authSource=admin`;
 const PORT = process.env.PORT || 3000;
