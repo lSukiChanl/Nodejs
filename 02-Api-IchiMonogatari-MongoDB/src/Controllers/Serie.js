@@ -29,6 +29,25 @@ const getSerieByName = async (req, res) => {
   }
 };
 
+/// Metodos get para eliminacion de usuarios
+const deleteSerieById = async (req, res) => {
+  try {
+      const Serie = await ModelSerie.findByIdAndDelete(req.params.id);
+      res.json({Result: Serie});
+  } catch (err) {
+      res.status(500).json({ Result: 'Error al obtener el Usuario' });
+  }
+};
+
+const deleteSerieByName = async (req, res) => {
+  try {
+      const Serie = await ModelSerie.deleteMany({ nombre: { $regex: req.params.id, $options: 'i'}});
+      res.json({Result: Serie});
+  } catch (err) {
+      res.status(500).json({ Result: 'Error al obtener el Usuario' });
+  }
+};
+
 /// Metodos post para agregar de usuarios
 const addSerie = async (req, res) => {
     const { url, nombre, alias, descripcion, capitulos, puntuacion, categoria, generos, fuente, 
@@ -49,4 +68,4 @@ const addSerie = async (req, res) => {
     }
 };
 
-module.exports = {getAllSeries, getSerieById, getSerieByName, addSerie};
+module.exports = {getAllSeries, getSerieById, getSerieByName, deleteSerieById, deleteSerieByName, addSerie};
